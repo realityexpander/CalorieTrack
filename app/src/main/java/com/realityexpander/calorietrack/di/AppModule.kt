@@ -5,6 +5,7 @@ import android.content.Context.MODE_PRIVATE
 import android.content.SharedPreferences
 import com.realityexpander.core.data.preferences.DefaultPreferences
 import com.realityexpander.core.domain.preferences.Preferences
+import com.realityexpander.core.domain.use_case.FilterOutDecimals
 import com.realityexpander.core.domain.use_case.FilterOutDigits
 import dagger.Module
 import dagger.Provides
@@ -33,7 +34,13 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun providFilterOutDigitsUseCase(): FilterOutDigits {
+    fun provideFilterOutDigitsUseCase(): FilterOutDigits {
         return FilterOutDigits()
+    }
+
+    @Provides
+    @Singleton
+    fun provideFilterOutDecimalsUseCase(): FilterOutDecimals {
+        return FilterOutDecimals()
     }
 }

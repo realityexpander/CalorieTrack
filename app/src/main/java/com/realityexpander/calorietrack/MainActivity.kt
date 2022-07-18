@@ -16,6 +16,8 @@ import com.realityexpander.core.navigation.Route
 import com.realityexpander.onboarding_presentation.welcome_screen.WelcomeScreen
 import com.realityexpander.onboarding_presentation.welcome_screen.age_screen.AgeScreen
 import com.realityexpander.onboarding_presentation.welcome_screen.gender_screen.GenderScreen
+import com.realityexpander.onboarding_presentation.welcome_screen.height_screen.HeightScreen
+import com.realityexpander.onboarding_presentation.welcome_screen.weight_screen.WeightScreen
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint  // due to injecting viewmodels in the composables
@@ -48,8 +50,16 @@ class MainActivity : ComponentActivity() {
                             )
                         }
                         composable(Route.HEIGHT) {
+                            HeightScreen(
+                                scaffoldState = scaffoldState,
+                                onNavigate = navController::navigate
+                            )
                         }
                         composable(Route.WEIGHT) {
+                            WeightScreen(
+                                scaffoldState = scaffoldState,
+                                onNavigate = navController::navigate
+                            )
                         }
                         composable(Route.NUTRIENT_GOAL) {
                         }

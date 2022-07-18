@@ -11,6 +11,8 @@
     <string name="whats_your_height">What\'s your height?</string>
     <string name="kg">kg</string>
     <string name="cm">cm</string>
+    <string name="inches">in</string>
+    <string name="pounds">lb</string>
     <string name="error_age_cant_be_empty">The age can\'t be empty</string>
     <string name="error_height_cant_be_empty">The height can\'t be empty</string>
     <string name="error_weight_cant_be_empty">The weight can\'t be empty</string>
