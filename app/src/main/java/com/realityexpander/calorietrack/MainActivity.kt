@@ -10,8 +10,10 @@ import com.realityexpander.calorietrack.navigation.navigate
 import com.realityexpander.calorietrack.ui.theme.CalorieTrackTheme
 import com.realityexpander.core.navigation.Route
 import com.realityexpander.onboarding_presentation.welcome_screen.WelcomeScreen
+import com.realityexpander.onboarding_presentation.welcome_screen.gender_screen.GenderScreen
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint  // due to injecting viewmodels in the composables
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,6 +31,7 @@ class MainActivity : ComponentActivity() {
                     composable(Route.AGE) {
                     }
                     composable(Route.GENDER) {
+                        GenderScreen(onNavigate = navController::navigate)
                     }
                     composable(Route.HEIGHT) {
                     }
