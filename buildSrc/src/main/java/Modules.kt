@@ -2,6 +2,7 @@ object Modules {
     const val app = ":app"
 
     const val core = ":core"
+    const val coreUi = ":core-ui"  // Camelcase gets transformed to skewercase
 
     const val onboardingDomain = ":onboarding:onboarding_domain"
     const val onboardingPresentation = ":onboarding:onboarding_presentation"
