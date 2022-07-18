@@ -5,6 +5,7 @@ import android.content.Context.MODE_PRIVATE
 import android.content.SharedPreferences
 import com.realityexpander.core.data.preferences.DefaultPreferences
 import com.realityexpander.core.domain.preferences.Preferences
+import com.realityexpander.core.domain.use_case.FilterOutDigits
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -28,5 +29,11 @@ object AppModule {
         app: Application
     ): SharedPreferences {
         return app.getSharedPreferences("shared_pref", MODE_PRIVATE)
+    }
+
+    @Provides
+    @Singleton
+    fun providFilterOutDigitsUseCase(): FilterOutDigits {
+        return FilterOutDigits()
     }
 }
