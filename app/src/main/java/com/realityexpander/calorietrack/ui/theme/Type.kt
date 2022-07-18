@@ -11,13 +11,13 @@ import androidx.compose.ui.unit.sp
 fun TypographyWithTextColor(colors: Colors): Typography {
     val newType = Typography(
         body1 = Typography.h1.copy(color = colors.contentColorFor(colors.background)),
-        button = Typography.h1.copy(color = colors.contentColorFor(colors.background)),
-        caption = Typography.h1.copy(color = colors.contentColorFor(colors.background)),
+        button = Typography.button.copy(color = colors.contentColorFor(colors.background)),
+        caption = Typography.caption.copy(color = colors.contentColorFor(colors.background)),
         h1 = Typography.h1.copy(color = colors.contentColorFor(colors.background)),
-        h2 = Typography.h1.copy(color = colors.contentColorFor(colors.background)),
-        h3 = Typography.h1.copy(color = colors.contentColorFor(colors.background)),
-        h4 = Typography.h1.copy(color = colors.contentColorFor(colors.background)),
-        h5 = Typography.h1.copy(color = colors.contentColorFor(colors.background)),
+        h2 = Typography.h2.copy(color = colors.contentColorFor(colors.background)),
+        h3 = Typography.h3.copy(color = colors.contentColorFor(colors.background)),
+        h4 = Typography.h4.copy(color = colors.contentColorFor(colors.background)),
+        h5 = Typography.h5.copy(color = colors.contentColorFor(colors.background)),
     )
 
     return newType

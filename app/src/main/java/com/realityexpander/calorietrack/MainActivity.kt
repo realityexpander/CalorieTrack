@@ -18,6 +18,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             CalorieTrackTheme {
                 val navController = rememberNavController()
+
                 NavHost(
                     navController = navController,
                     startDestination = Route.WELCOME
@@ -39,7 +40,6 @@ class MainActivity : ComponentActivity() {
                     }
                     composable(Route.GOAL) {
                     }
-
                     composable(Route.TRACKER_OVERVIEW) {
                     }
                     composable(Route.SEARCH) {
