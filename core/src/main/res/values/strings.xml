@@ -52,9 +52,9 @@
     <string name="years">years</string>
     <string name="whats_your_weight">What\'s your weight?</string>
     <string name="low">Low</string>
-    <string name="gain">Gain</string>
-    <string name="keep">Keep</string>
-    <string name="lose">Lose</string>
+    <string name="gain_weight">Gain</string>
+    <string name="maintain_weight">Keep</string>
+    <string name="lose_weight">Lose</string>
     <string name="lose_keep_or_gain_weight">Do you want to lose, keep or gain weight?</string>
     <string name="whats_your_activity_level">What\'s your activity level?</string>
     <string name="error_not_100_percent">The values must add up to 100%</string>

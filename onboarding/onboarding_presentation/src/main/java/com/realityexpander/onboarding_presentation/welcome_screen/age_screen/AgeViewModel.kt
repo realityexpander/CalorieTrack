@@ -22,7 +22,7 @@ class AgeViewModel @Inject constructor(
     private val preferences: Preferences,
     private val filterOutDigits: FilterOutDigits // use_case
 ): ViewModel() {
-    var age by mutableStateOf<String>("")
+    var age by mutableStateOf<String>("18")
         private set
 
     // Channels are events sent only once

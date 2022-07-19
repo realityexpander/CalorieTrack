@@ -1,6 +1,5 @@
 package com.realityexpander.onboarding_presentation.welcome_screen.components
 
-import android.text.InputType
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.KeyboardOptions
@@ -18,7 +17,7 @@ import com.realityexpander.core_ui.LocalSpacing
 @Composable
 fun UnitTextField(
     modifier: Modifier = Modifier,
-    value: String,
+    initialValue: String,
     onValueChange: (String) -> Unit,
     units: String,  // e.g. "m", "ft", "km"
     textStyle: TextStyle = TextStyle(
@@ -34,7 +33,7 @@ fun UnitTextField(
         horizontalArrangement = Arrangement.Center
     ) {
         BasicTextField(
-            value = value,
+            value = initialValue,
             onValueChange = onValueChange,
             textStyle = textStyle,
             keyboardOptions = KeyboardOptions(

@@ -9,7 +9,6 @@ import com.realityexpander.core.navigation.Route
 import com.realityexpander.core.util.UiEvent
 import dagger.hilt.android.lifecycle.HiltViewModel
 import androidx.lifecycle.viewModelScope
-import com.realityexpander.core.domain.use_case.FilterOutDigits
 import com.realityexpander.core.util.UiText
 import com.realityexpander.core.R
 import com.realityexpander.core.domain.use_case.FilterOutDecimals
@@ -46,7 +45,7 @@ class WeightViewModel @Inject constructor(
             }
 
             preferences.saveWeight(weightFloat)
-            _uiEvent.send(UiEvent.Navigate(Route.NUTRIENT_GOAL))
+            _uiEvent.send(UiEvent.Navigate(Route.ACTIVITY_LEVEL))
         }
     }
 }

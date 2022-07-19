@@ -14,13 +14,15 @@ import com.realityexpander.calorietrack.navigation.navigate
 import com.realityexpander.calorietrack.ui.theme.CalorieTrackTheme
 import com.realityexpander.core.navigation.Route
 import com.realityexpander.onboarding_presentation.welcome_screen.WelcomeScreen
+import com.realityexpander.onboarding_presentation.welcome_screen.activity_level_screen.ActivityLevelScreen
 import com.realityexpander.onboarding_presentation.welcome_screen.age_screen.AgeScreen
 import com.realityexpander.onboarding_presentation.welcome_screen.gender_screen.GenderScreen
+import com.realityexpander.onboarding_presentation.welcome_screen.goal_type_screen.GoalTypeScreen
 import com.realityexpander.onboarding_presentation.welcome_screen.height_screen.HeightScreen
 import com.realityexpander.onboarding_presentation.welcome_screen.weight_screen.WeightScreen
 import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint  // due to injecting viewmodels in the composables
+@AndroidEntryPoint  // due to injecting viewModels in the composables
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,11 +63,17 @@ class MainActivity : ComponentActivity() {
                                 onNavigate = navController::navigate
                             )
                         }
+                        composable(Route.ACTIVITY_LEVEL) {
+                            ActivityLevelScreen(
+                                onNavigate = navController::navigate
+                            )
+                        }
+                        composable(Route.GOAL_TYPE) {
+                            GoalTypeScreen(
+                                onNavigate = navController::navigate
+                            )
+                        }
                         composable(Route.NUTRIENT_GOAL) {
-                        }
-                        composable(Route.ACTIVITY) {
-                        }
-                        composable(Route.GOAL) {
                         }
                         composable(Route.TRACKER_OVERVIEW) {
                         }

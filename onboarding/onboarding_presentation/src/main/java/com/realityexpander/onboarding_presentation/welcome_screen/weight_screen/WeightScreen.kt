@@ -14,7 +14,6 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.realityexpander.core.R
 import com.realityexpander.core.util.UiEvent
 import com.realityexpander.core_ui.LocalSpacing
-import com.realityexpander.onboarding_presentation.welcome_screen.age_screen.HeightViewModel
 import com.realityexpander.onboarding_presentation.welcome_screen.age_screen.WeightViewModel
 import com.realityexpander.onboarding_presentation.welcome_screen.components.ActionButton
 import com.realityexpander.onboarding_presentation.welcome_screen.components.UnitTextField
@@ -62,7 +61,7 @@ fun WeightScreen(
             Spacer(modifier = Modifier.height(spacing.spaceMedium))
             
             UnitTextField(
-                value = viewModel.weight,
+                initialValue = viewModel.weight,
                 onValueChange = viewModel::onWeightEnter,
                 units = stringResource(
                 id = R.string.pounds)
