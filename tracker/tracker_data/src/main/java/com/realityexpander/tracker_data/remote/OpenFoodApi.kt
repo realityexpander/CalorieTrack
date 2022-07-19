@@ -1,6 +1,5 @@
 package com.realityexpander.tracker_data.remote
 
-import com.plcoding.tracker_data.remote.dto.Product
 import com.plcoding.tracker_data.remote.dto.SearchDto
 import retrofit2.http.GET
 import retrofit2.http.Query

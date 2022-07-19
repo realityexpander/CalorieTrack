@@ -2,6 +2,7 @@ package com.realityexpander.tracker_data.local
 
 import androidx.room.*
 import com.realityexpander.tracker_data.local.entity.TrackedFoodEntity
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface TrackerDao {
@@ -19,5 +20,5 @@ interface TrackerDao {
         WHERE :dayOfMonth = dayOfMonth AND :month = month AND :year = year
     """
     )
-    fun getFoodForDate(dayOfMonth: Int, month: Int, year: Int): List<TrackedFoodEntity>
+    fun getFoodsForDate(dayOfMonth: Int, month: Int, year: Int): Flow<List<TrackedFoodEntity>>
 }

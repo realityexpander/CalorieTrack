@@ -3,7 +3,7 @@ package com.plcoding.tracker_data.remote.dto
 
 import com.squareup.moshi.Json
 
-data class Nutriments(
+data class NutrimentsDto(
     @field:Json(name = "carbohydrates_100g")
     val carbohydrates100g: Double,
     @field:Json(name = "energy-kcal_100g")

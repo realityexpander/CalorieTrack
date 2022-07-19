@@ -9,5 +9,5 @@ import com.realityexpander.tracker_data.local.entity.TrackedFoodEntity
 )
 abstract class TrackerDatabase: RoomDatabase() {
 
-    abstract fun dao(): TrackerDao
+    abstract val dao: TrackerDao
 }

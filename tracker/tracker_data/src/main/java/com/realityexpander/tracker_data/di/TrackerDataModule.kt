@@ -1,9 +1,12 @@
 package com.realityexpander.tracker_data.di
 
 import android.app.Application
+import androidx.room.ProvidedAutoMigrationSpec
 import androidx.room.Room
 import com.realityexpander.tracker_data.local.TrackerDatabase
 import com.realityexpander.tracker_data.remote.OpenFoodApi
+import com.realityexpander.tracker_data.repository.TrackerRepositoryImpl
+import com.realityexpander.tracker_domain.repository.TrackerRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -50,5 +53,17 @@ object TrackerDataModule {
             TrackerDatabase::class.java,
             "tracker.db"
         ).build()
+    }
+
+    @Provides
+    @Singleton
+    fun provideTrackerRepository(
+        api: OpenFoodApi,
+        db: TrackerDatabase  // supply the entire db object, so we can do testing with an in-memory db
+    ): TrackerRepository {
+        return TrackerRepositoryImpl(
+            dao = db.dao,
+            api = api
+        )
     }
 }
