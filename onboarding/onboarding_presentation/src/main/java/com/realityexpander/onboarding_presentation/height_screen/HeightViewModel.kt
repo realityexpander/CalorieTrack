@@ -11,41 +11,41 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import androidx.lifecycle.viewModelScope
 import com.realityexpander.core.util.UiText
 import com.realityexpander.core.R
-import com.realityexpander.core.domain.use_case.FilterOutDecimals
+import com.realityexpander.core.domain.use_case.FilterKeepDigitsAndDecimals
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class WeightViewModel @Inject constructor(
+class HeightViewModel @Inject constructor(
     private val preferences: Preferences,
-    private val filterOutDecimals: FilterOutDecimals // use_case
+    private val filterKeepDigitsAndDecimals: FilterKeepDigitsAndDecimals // use_case
 ): ViewModel() {
-    var weight by mutableStateOf<String>("160.0")
+    var height by mutableStateOf<String>("65.0")
         private set
 
     // Channels are events sent only once
     private val _uiEvent = Channel<UiEvent>()
     val uiEvent = _uiEvent.receiveAsFlow()
 
-    fun onWeightEnter(weight: String) {
-        if(weight.length <= 5) {
-            this.weight = filterOutDecimals(weight)
+    fun onHeightEnter(height: String) {
+        if(height.length <= 5) {
+            this.height = filterKeepDigitsAndDecimals(height)
         }
     }
 
     fun onNextClick() {
         viewModelScope.launch {
-            val weightFloat = weight.toFloatOrNull() ?: run {
+            val heightFloat = height.toFloatOrNull() ?: run {
                 _uiEvent.send(UiEvent.ShowSnackbar(
-                    UiText.StringResource(R.string.error_weight_cant_be_empty)
+                    UiText.StringResource(R.string.error_height_cant_be_empty)
                 ))
                 return@launch
             }
 
-            preferences.saveWeight(weightFloat)
-            _uiEvent.send(UiEvent.Navigate(Route.ACTIVITY_LEVEL))
+            preferences.saveHeight(heightFloat)
+            _uiEvent.send(UiEvent.Navigate(Route.WEIGHT))
         }
     }
 }

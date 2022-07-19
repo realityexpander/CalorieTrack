@@ -1,6 +1,6 @@
 package com.realityexpander.core.domain.use_case
 
-class FilterOutDigits {
+class FilterKeepDigits {
 
     operator fun invoke(input: String): String {
         return input.filter { it.isDigit() }

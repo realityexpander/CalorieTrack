@@ -1,6 +1,6 @@
 package com.realityexpander.core.domain.use_case
 
-class FilterOutDecimals {
+class FilterKeepDigitsAndDecimals {
 
     operator fun invoke(input: String): String {
         return input.filter { it.isDigit() || it == '.' }

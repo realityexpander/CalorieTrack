@@ -1,4 +1,4 @@
-package com.realityexpander.onboarding_presentation.welcome_screen.age_screen
+package com.realityexpander.onboarding_presentation.nutrient_goal_screen
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
@@ -14,15 +14,15 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.realityexpander.core.R
 import com.realityexpander.core.util.UiEvent
 import com.realityexpander.core_ui.LocalSpacing
-import com.realityexpander.onboarding_presentation.welcome_screen.components.ActionButton
-import com.realityexpander.onboarding_presentation.welcome_screen.components.UnitTextField
+import com.realityexpander.onboarding_presentation.components.ActionButton
+import com.realityexpander.onboarding_presentation.components.UnitTextField
 import kotlinx.coroutines.flow.collect
 
 @Composable
-fun AgeScreen(
+fun NutrientGoalScreen(
     scaffoldState: ScaffoldState,
     onNavigate: (UiEvent.Navigate) -> Unit,
-    viewModel: AgeViewModel = hiltViewModel(),
+    viewModel: NutrientGoalViewModel = hiltViewModel(),
 ) {
     val spacing = LocalSpacing.current
     val context = LocalContext.current
@@ -54,28 +54,45 @@ fun AgeScreen(
 
 
             Text(
-                text = stringResource(id = R.string.whats_your_age),
+                text = stringResource(id = R.string.what_are_your_nutrient_goals),
                 style = MaterialTheme.typography.h3
             )
             Spacer(modifier = Modifier.height(spacing.spaceMedium))
-            
-            UnitTextField(
-                initialValue = viewModel.age,
-                onValueChange = viewModel::onAgeEnter,
-                units = stringResource(
-                id = R.string.years)
-            )
 
+            UnitTextField(
+                initialValue = viewModel.state.carbRatioInt,
+                onValueChange = {
+                    viewModel.onEvent(NutrientGoalEvent.OnCarbRatioEnter(it))
+                },
+                units = stringResource(id = R.string.percent_carbs)
+            )
+            Spacer(modifier = Modifier.height(spacing.spaceMedium))
+
+            UnitTextField(
+                initialValue = viewModel.state.fatRatioInt,
+                onValueChange = {
+                    viewModel.onEvent(NutrientGoalEvent.OnFatRatioEnter(it))
+                },
+                units = stringResource(id = R.string.percent_fats)
+            )
+            Spacer(modifier = Modifier.height(spacing.spaceMedium))
+
+            UnitTextField(
+                initialValue = viewModel.state.proteinRatioInt,
+                onValueChange = {
+                    viewModel.onEvent(NutrientGoalEvent.OnProteinRatioEnter(it))
+                },
+                units = stringResource(id = R.string.percent_proteins)
+            )
         }
 
         // Nav to Next screen
         ActionButton(
             text = stringResource(id = R.string.next),
             onClick = {
-                viewModel.onNextClick()
+                viewModel.onEvent(NutrientGoalEvent.OnNextClick)
             },
             modifier = Modifier.align(Alignment.BottomEnd)  // align to bottom end of the screen
         )
     }
-
 }

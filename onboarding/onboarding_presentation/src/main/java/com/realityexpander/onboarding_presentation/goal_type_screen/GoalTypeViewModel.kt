@@ -1,4 +1,4 @@
-package com.realityexpander.onboarding_presentation.welcome_screen.goal_type_screen
+package com.realityexpander.onboarding_presentation.goal_type_screen
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf

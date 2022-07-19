@@ -14,12 +14,13 @@ import com.realityexpander.calorietrack.navigation.navigate
 import com.realityexpander.calorietrack.ui.theme.CalorieTrackTheme
 import com.realityexpander.core.navigation.Route
 import com.realityexpander.onboarding_presentation.welcome_screen.WelcomeScreen
-import com.realityexpander.onboarding_presentation.welcome_screen.activity_level_screen.ActivityLevelScreen
-import com.realityexpander.onboarding_presentation.welcome_screen.age_screen.AgeScreen
-import com.realityexpander.onboarding_presentation.welcome_screen.gender_screen.GenderScreen
-import com.realityexpander.onboarding_presentation.welcome_screen.goal_type_screen.GoalTypeScreen
-import com.realityexpander.onboarding_presentation.welcome_screen.height_screen.HeightScreen
-import com.realityexpander.onboarding_presentation.welcome_screen.weight_screen.WeightScreen
+import com.realityexpander.onboarding_presentation.activity_level_screen.ActivityLevelScreen
+import com.realityexpander.onboarding_presentation.age_screen.AgeScreen
+import com.realityexpander.onboarding_presentation.gender_screen.GenderScreen
+import com.realityexpander.onboarding_presentation.goal_type_screen.GoalTypeScreen
+import com.realityexpander.onboarding_presentation.height_screen.HeightScreen
+import com.realityexpander.onboarding_presentation.nutrient_goal_screen.NutrientGoalScreen
+import com.realityexpander.onboarding_presentation.weight_screen.WeightScreen
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint  // due to injecting viewModels in the composables
@@ -74,6 +75,10 @@ class MainActivity : ComponentActivity() {
                             )
                         }
                         composable(Route.NUTRIENT_GOAL) {
+                            NutrientGoalScreen(
+                                scaffoldState = scaffoldState,
+                                onNavigate = navController::navigate
+                            )
                         }
                         composable(Route.TRACKER_OVERVIEW) {
                         }

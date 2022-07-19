@@ -5,12 +5,12 @@ import android.content.Context.MODE_PRIVATE
 import android.content.SharedPreferences
 import com.realityexpander.core.data.preferences.DefaultPreferences
 import com.realityexpander.core.domain.preferences.Preferences
-import com.realityexpander.core.domain.use_case.FilterOutDecimals
-import com.realityexpander.core.domain.use_case.FilterOutDigits
+import com.realityexpander.core.domain.use_case.FilterKeepDigitsAndDecimals
+import com.realityexpander.core.domain.use_case.FilterKeepDigits
+import com.realityexpander.onboarding_domain.use_cases.ValidateNutrients
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
@@ -34,13 +34,14 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideFilterOutDigitsUseCase(): FilterOutDigits {
-        return FilterOutDigits()
+    fun provideFilterOutDigitsUseCase(): FilterKeepDigits {
+        return FilterKeepDigits()
     }
 
     @Provides
     @Singleton
-    fun provideFilterOutDecimalsUseCase(): FilterOutDecimals {
-        return FilterOutDecimals()
+    fun provideFilterOutDecimalsUseCase(): FilterKeepDigitsAndDecimals {
+        return FilterKeepDigitsAndDecimals()
     }
+
 }

@@ -1,4 +1,4 @@
-package com.realityexpander.onboarding_presentation.welcome_screen.weight_screen
+package com.realityexpander.onboarding_presentation.height_screen
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
@@ -14,16 +14,16 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.realityexpander.core.R
 import com.realityexpander.core.util.UiEvent
 import com.realityexpander.core_ui.LocalSpacing
-import com.realityexpander.onboarding_presentation.welcome_screen.age_screen.WeightViewModel
-import com.realityexpander.onboarding_presentation.welcome_screen.components.ActionButton
-import com.realityexpander.onboarding_presentation.welcome_screen.components.UnitTextField
+import com.realityexpander.onboarding_presentation.welcome_screen.age_screen.HeightViewModel
+import com.realityexpander.onboarding_presentation.components.ActionButton
+import com.realityexpander.onboarding_presentation.components.UnitTextField
 import kotlinx.coroutines.flow.collect
 
 @Composable
-fun WeightScreen(
+fun HeightScreen(
     scaffoldState: ScaffoldState,
     onNavigate: (UiEvent.Navigate) -> Unit,
-    viewModel: WeightViewModel = hiltViewModel(),
+    viewModel: HeightViewModel = hiltViewModel(),
 ) {
     val spacing = LocalSpacing.current
     val context = LocalContext.current
@@ -55,16 +55,16 @@ fun WeightScreen(
 
 
             Text(
-                text = stringResource(id = R.string.whats_your_weight),
+                text = stringResource(id = R.string.whats_your_height),
                 style = MaterialTheme.typography.h3
             )
             Spacer(modifier = Modifier.height(spacing.spaceMedium))
             
             UnitTextField(
-                initialValue = viewModel.weight,
-                onValueChange = viewModel::onWeightEnter,
+                initialValue = viewModel.height,
+                onValueChange = viewModel::onHeightEnter,
                 units = stringResource(
-                id = R.string.pounds)
+                id = R.string.inches)
             )
 
         }

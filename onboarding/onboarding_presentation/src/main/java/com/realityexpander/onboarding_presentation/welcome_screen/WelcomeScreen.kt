@@ -12,7 +12,7 @@ import com.realityexpander.core.R
 import com.realityexpander.core.navigation.Route
 import com.realityexpander.core.util.UiEvent
 import com.realityexpander.core_ui.LocalSpacing
-import com.realityexpander.onboarding_presentation.welcome_screen.components.ActionButton
+import com.realityexpander.onboarding_presentation.components.ActionButton
 
 @Composable
 fun WelcomeScreen(

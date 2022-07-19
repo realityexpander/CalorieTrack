@@ -1,4 +1,4 @@
-package com.realityexpander.onboarding_presentation.welcome_screen.gender_screen
+package com.realityexpander.onboarding_presentation.gender_screen
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -22,7 +22,7 @@ class GenderViewModel @Inject constructor(
     var selectedGender by mutableStateOf<Gender>(Gender.Male)
         private set
 
-    // Channels are events sent only once
+    // Channels contain events sent only once
     private val _uiEvent = Channel<UiEvent>()
     val uiEvent = _uiEvent.receiveAsFlow()
 

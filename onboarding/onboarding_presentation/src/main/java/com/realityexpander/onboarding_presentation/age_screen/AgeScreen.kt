@@ -1,4 +1,4 @@
-package com.realityexpander.onboarding_presentation.welcome_screen.height_screen
+package com.realityexpander.onboarding_presentation.age_screen
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
@@ -14,16 +14,15 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.realityexpander.core.R
 import com.realityexpander.core.util.UiEvent
 import com.realityexpander.core_ui.LocalSpacing
-import com.realityexpander.onboarding_presentation.welcome_screen.age_screen.HeightViewModel
-import com.realityexpander.onboarding_presentation.welcome_screen.components.ActionButton
-import com.realityexpander.onboarding_presentation.welcome_screen.components.UnitTextField
+import com.realityexpander.onboarding_presentation.components.ActionButton
+import com.realityexpander.onboarding_presentation.components.UnitTextField
 import kotlinx.coroutines.flow.collect
 
 @Composable
-fun HeightScreen(
+fun AgeScreen(
     scaffoldState: ScaffoldState,
     onNavigate: (UiEvent.Navigate) -> Unit,
-    viewModel: HeightViewModel = hiltViewModel(),
+    viewModel: AgeViewModel = hiltViewModel(),
 ) {
     val spacing = LocalSpacing.current
     val context = LocalContext.current
@@ -55,16 +54,16 @@ fun HeightScreen(
 
 
             Text(
-                text = stringResource(id = R.string.whats_your_height),
+                text = stringResource(id = R.string.whats_your_age),
                 style = MaterialTheme.typography.h3
             )
             Spacer(modifier = Modifier.height(spacing.spaceMedium))
             
             UnitTextField(
-                initialValue = viewModel.height,
-                onValueChange = viewModel::onHeightEnter,
+                initialValue = viewModel.age,
+                onValueChange = viewModel::onAgeEnter,
                 units = stringResource(
-                id = R.string.inches)
+                id = R.string.years)
             )
 
         }

@@ -1,4 +1,4 @@
-package com.realityexpander.onboarding_presentation.welcome_screen.components
+package com.realityexpander.onboarding_presentation.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border

@@ -1,4 +1,4 @@
-package com.realityexpander.onboarding_presentation.welcome_screen.age_screen
+package com.realityexpander.onboarding_presentation.age_screen
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -9,44 +9,43 @@ import com.realityexpander.core.navigation.Route
 import com.realityexpander.core.util.UiEvent
 import dagger.hilt.android.lifecycle.HiltViewModel
 import androidx.lifecycle.viewModelScope
-import com.realityexpander.core.domain.use_case.FilterOutDigits
 import com.realityexpander.core.util.UiText
 import com.realityexpander.core.R
-import com.realityexpander.core.domain.use_case.FilterOutDecimals
+import com.realityexpander.core.domain.use_case.FilterKeepDigits
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class HeightViewModel @Inject constructor(
+class AgeViewModel @Inject constructor(
     private val preferences: Preferences,
-    private val filterOutDecimals: FilterOutDecimals // use_case
+    private val filterKeepDigits: FilterKeepDigits // use_case
 ): ViewModel() {
-    var height by mutableStateOf<String>("65.0")
+    var age by mutableStateOf<String>("18")
         private set
 
     // Channels are events sent only once
     private val _uiEvent = Channel<UiEvent>()
     val uiEvent = _uiEvent.receiveAsFlow()
 
-    fun onHeightEnter(height: String) {
-        if(height.length <= 5) {
-            this.height = filterOutDecimals(height)
+    fun onAgeEnter(age: String) {
+        if(age.length <= 3) {
+            this.age = filterKeepDigits(age)
         }
     }
 
     fun onNextClick() {
         viewModelScope.launch {
-            val heightFloat = height.toFloatOrNull() ?: run {
+            val ageInt = age.toIntOrNull() ?: run {
                 _uiEvent.send(UiEvent.ShowSnackbar(
-                    UiText.StringResource(R.string.error_height_cant_be_empty)
+                    UiText.StringResource(R.string.error_age_cant_be_empty)
                 ))
                 return@launch
             }
 
-            preferences.saveHeight(heightFloat)
-            _uiEvent.send(UiEvent.Navigate(Route.WEIGHT))
+            preferences.saveAge(ageInt)
+            _uiEvent.send(UiEvent.Navigate(Route.HEIGHT))
         }
     }
 }

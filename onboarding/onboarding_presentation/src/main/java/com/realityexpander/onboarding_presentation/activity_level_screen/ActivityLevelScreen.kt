@@ -1,4 +1,4 @@
-package com.realityexpander.onboarding_presentation.welcome_screen.goal_type_screen
+package com.realityexpander.onboarding_presentation.activity_level_screen
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
@@ -15,15 +15,14 @@ import com.realityexpander.core.util.UiEvent
 import com.realityexpander.core_ui.LocalSpacing
 import com.realityexpander.core.R
 import com.realityexpander.core.domain.model.ActivityLevel
-import com.realityexpander.core.domain.model.GoalType
-import com.realityexpander.onboarding_presentation.welcome_screen.components.ActionButton
-import com.realityexpander.onboarding_presentation.welcome_screen.components.SelectableButton
+import com.realityexpander.onboarding_presentation.components.ActionButton
+import com.realityexpander.onboarding_presentation.components.SelectableButton
 import kotlinx.coroutines.flow.collect
 
 @Composable
-fun GoalTypeScreen(
+fun ActivityLevelScreen(
     onNavigate: (UiEvent.Navigate) -> Unit,
-    viewModel: GoalTypeViewModel = hiltViewModel(),
+    viewModel: ActivityLevelViewModel = hiltViewModel(),
 ) {
 
     val spacing = LocalSpacing.current
@@ -56,12 +55,12 @@ fun GoalTypeScreen(
             Row {
 
                 // Low button
-                SelectableButton(text = stringResource(id = R.string.lose_weight),
-                    isSelected = viewModel.selectedGoalType is GoalType.LoseWeight,
+                SelectableButton(text = stringResource(id = R.string.low),
+                    isSelected = viewModel.selectedActivityLevel is ActivityLevel.Low,
                     color = MaterialTheme.colors.primaryVariant,
                     selectedTextColor = Color.White,
                     onClick = {
-                        viewModel.onGoalTypeClick(GoalType.LoseWeight)
+                        viewModel.onActivityLevelClick(ActivityLevel.Low)
                     },
                     textStyle = MaterialTheme.typography.button.copy(
                         fontWeight = FontWeight.Normal
@@ -70,12 +69,12 @@ fun GoalTypeScreen(
                 Spacer(modifier = Modifier.width(spacing.spaceMedium))
 
                 // Medium Button
-                SelectableButton(text = stringResource(id = R.string.maintain_weight),
-                    isSelected = viewModel.selectedGoalType is GoalType.MaintainWeight,
+                SelectableButton(text = stringResource(id = R.string.medium),
+                    isSelected = viewModel.selectedActivityLevel is ActivityLevel.Medium,
                     color = MaterialTheme.colors.primaryVariant,
                     selectedTextColor = Color.White,
                     onClick = {
-                        viewModel.onGoalTypeClick(GoalType.MaintainWeight)
+                        viewModel.onActivityLevelClick(ActivityLevel.Medium)
                     },
                     textStyle = MaterialTheme.typography.button.copy(
                         fontWeight = FontWeight.Normal
@@ -84,12 +83,12 @@ fun GoalTypeScreen(
                 Spacer(modifier = Modifier.width(spacing.spaceMedium))
 
                 // High Button
-                SelectableButton(text = stringResource(id = R.string.gain_weight),
-                    isSelected = viewModel.selectedGoalType is GoalType.GainWeight,
+                SelectableButton(text = stringResource(id = R.string.high),
+                    isSelected = viewModel.selectedActivityLevel is ActivityLevel.High,
                     color = MaterialTheme.colors.primaryVariant,
                     selectedTextColor = Color.White,
                     onClick = {
-                        viewModel.onGoalTypeClick(GoalType.GainWeight)
+                        viewModel.onActivityLevelClick(ActivityLevel.High)
                     },
                     textStyle = MaterialTheme.typography.button.copy(
                         fontWeight = FontWeight.Normal

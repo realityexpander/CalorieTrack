@@ -1,4 +1,4 @@
-package com.realityexpander.onboarding_presentation.welcome_screen.gender_screen
+package com.realityexpander.onboarding_presentation.gender_screen
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
@@ -15,8 +15,8 @@ import com.realityexpander.core.util.UiEvent
 import com.realityexpander.core_ui.LocalSpacing
 import com.realityexpander.core.R
 import com.realityexpander.core.domain.model.Gender
-import com.realityexpander.onboarding_presentation.welcome_screen.components.ActionButton
-import com.realityexpander.onboarding_presentation.welcome_screen.components.SelectableButton
+import com.realityexpander.onboarding_presentation.components.ActionButton
+import com.realityexpander.onboarding_presentation.components.SelectableButton
 import kotlinx.coroutines.flow.collect
 
 @Composable
