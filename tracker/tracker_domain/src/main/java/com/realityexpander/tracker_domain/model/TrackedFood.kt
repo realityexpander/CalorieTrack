@@ -3,7 +3,7 @@ package com.realityexpander.tracker_domain.model
 import java.time.LocalDate
 
 
-// unified class from database and api
+// unified class from database and api to be used in the domain layer
 data class TrackedFood(
     val id: Int? = null,
 

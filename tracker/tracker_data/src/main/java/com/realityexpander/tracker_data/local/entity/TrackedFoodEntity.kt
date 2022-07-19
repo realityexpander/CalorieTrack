@@ -3,6 +3,7 @@ package com.realityexpander.tracker_data.local.entity
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
+// For the database
 @Entity(tableName = "tracked_food")
 data class TrackedFoodEntity(
     @PrimaryKey val id: Int?,
