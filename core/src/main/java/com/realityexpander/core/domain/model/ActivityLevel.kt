@@ -11,7 +11,7 @@ sealed class ActivityLevel(val name: String) {
                 "low" -> Low
                 "medium" -> Medium
                 "high" -> High
-                else -> throw IllegalStateException("Activity Level is unknown.")
+                else -> Medium //throw IllegalStateException("Activity Level is unknown.")
 
             }
         }

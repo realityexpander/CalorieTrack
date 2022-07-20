@@ -1,4 +1,4 @@
-package com.realityexpander.calorietrack.ui.theme
+package com.realityexpander.core_ui
 
 import androidx.compose.ui.graphics.Color
 

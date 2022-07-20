@@ -86,7 +86,7 @@ class CalculateMealNutrients(
                         5f * userInfo.height - 6.75f * userInfo.age).roundToInt()
             }
             is Gender.Female ->  {
-                (665.09f + 9.56f * userInfo.weight +
+                (65.09f + 9.56f * userInfo.weight +
                         1.84f * userInfo.height - 4.67 * userInfo.age).roundToInt()
             }
         }

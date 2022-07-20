@@ -11,7 +11,7 @@ sealed class GoalType(val name: String) {
                 "lose_weight" -> LoseWeight
                 "maintain_weight" -> MaintainWeight
                 "gain_weight" -> GainWeight
-                else -> throw IllegalStateException("Goal type is unknown.")
+                else -> MaintainWeight //throw IllegalStateException("Goal type is unknown.")
 
             }
         }

@@ -9,7 +9,7 @@ sealed class Gender(val name: String) {
             return when(gender) {
                 "male" -> Male
                 "female" -> Female
-                else -> throw IllegalStateException("Gender is unknown.")
+                else -> Male //throw IllegalStateException("Gender is unknown.")
 
             }
         }

@@ -21,6 +21,7 @@ import com.realityexpander.onboarding_presentation.goal_type_screen.GoalTypeScre
 import com.realityexpander.onboarding_presentation.height_screen.HeightScreen
 import com.realityexpander.onboarding_presentation.nutrient_goal_screen.NutrientGoalScreen
 import com.realityexpander.onboarding_presentation.weight_screen.WeightScreen
+import com.realityexpander.tracker_presentation.tracker_overview_screen.TrackerOverviewScreen
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint  // due to injecting viewModels in the composables
@@ -81,6 +82,10 @@ class MainActivity : ComponentActivity() {
                             )
                         }
                         composable(Route.TRACKER_OVERVIEW) {
+                            TrackerOverviewScreen(
+                                //scaffoldState = scaffoldState,
+                                onNavigate = navController::navigate
+                            )
                         }
                         composable(Route.SEARCH) {
                         }

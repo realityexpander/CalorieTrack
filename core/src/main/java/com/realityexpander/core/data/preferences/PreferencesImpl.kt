@@ -67,12 +67,12 @@ class PreferencesImpl(
     override fun loadUserInfo(): UserInfo {
         return sharedPreferences.all.let { userMap ->
             UserInfo(
-                gender          = Gender.fromString(userMap[Preferences.KEY_GENDER] as String),
+                gender          = Gender.fromString(userMap[Preferences.KEY_GENDER] as String? ?: ""),
                 age             = userMap[Preferences.KEY_AGE] as Int,
                 weight          = userMap[Preferences.KEY_WEIGHT] as Float,
                 height          = userMap[Preferences.KEY_HEIGHT] as Float,
-                activityLevel   = ActivityLevel.fromString(userMap[Preferences.KEY_GENDER] as String),
-                goalType        = GoalType.fromString(userMap[Preferences.KEY_GOAL_TYPE] as String),
+                activityLevel   = ActivityLevel.fromString(userMap[Preferences.KEY_GENDER] as String? ?: ""),
+                goalType        = GoalType.fromString(userMap[Preferences.KEY_GOAL_TYPE] as String? ?: ""),
                 carbRatio       = userMap[Preferences.KEY_CARB_RATIO] as Float,
                 proteinRatio    = userMap[Preferences.KEY_PROTEIN_RATIO] as Float,
                 fatRatio        = userMap[Preferences.KEY_FAT_RATIO] as Float,
