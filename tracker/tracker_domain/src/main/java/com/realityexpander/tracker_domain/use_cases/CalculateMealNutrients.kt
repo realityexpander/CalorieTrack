@@ -5,7 +5,7 @@ import com.realityexpander.core.domain.model.Gender
 import com.realityexpander.core.domain.model.GoalType
 import com.realityexpander.core.domain.model.UserInfo
 import com.realityexpander.core.domain.preferences.Preferences
-import com.realityexpander.tracker_domain.model.MealType
+import com.realityexpander.tracker_domain.model.MealOfDayType
 import com.realityexpander.tracker_domain.model.TrackedFood
 import kotlin.math.roundToInt
 
@@ -17,7 +17,7 @@ class CalculateMealNutrients(
         val fat: Int,
         val carb: Int,
         val calories: Int,
-        val mealType: MealType
+        val mealOfDayType: MealOfDayType
     )
 
     data class Result(
@@ -31,13 +31,13 @@ class CalculateMealNutrients(
         val totalFat: Int,
         val totalCalories: Int,
 
-        val mealNutrients: Map<MealType, MealNutrients>
+        val mealNutrients: Map<MealOfDayType, MealNutrients>
     )
 
     operator fun invoke(trackedFoods: List<TrackedFood>): Result {
         val allNutrients = trackedFoods
             .groupBy{ trackedFood ->
-                trackedFood.mealType
+                trackedFood.mealOfDayType
             }
             .mapValues { entry ->
                 val mealType = entry.key
@@ -48,7 +48,7 @@ class CalculateMealNutrients(
                     fat = foods.sumOf { food -> food.fat },
                     protein = foods.sumOf { food -> food.protein },
                     calories = foods.sumOf { food -> food.calories },
-                    mealType = mealType
+                    mealOfDayType = mealType
                 )
 
             }

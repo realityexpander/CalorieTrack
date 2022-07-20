@@ -1,6 +1,6 @@
 package com.realityexpander.tracker_presentation.search
 
-import com.realityexpander.tracker_domain.model.MealType
+import com.realityexpander.tracker_domain.model.MealOfDayType
 import com.realityexpander.tracker_domain.model.TrackableFood
 import java.time.LocalDate
 
@@ -21,9 +21,9 @@ sealed class SearchEvent {
         ) : SearchEvent()
 
     data class OnTrackFoodClick(
-            val food: TrackableFood,
-            val mealType: MealType,
-            val date: LocalDate
+        val food: TrackableFood,
+        val mealOfDayType: MealOfDayType,
+        val date: LocalDate
         ): SearchEvent()
 
     data class OnSearchFocusChange(

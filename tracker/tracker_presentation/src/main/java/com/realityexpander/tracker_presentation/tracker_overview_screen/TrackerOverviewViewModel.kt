@@ -45,7 +45,7 @@ class TrackerOverviewViewModel @Inject constructor(
                     _uiEvent.send(
                         UiEvent.Navigate(
                             route = Route.SEARCH +
-                                    "/${event.meal.mealType.name}" +
+                                    "/${event.meal.mealOfDayType.name}" +
                                     "/${state.date.dayOfMonth}" +
                                     "/${state.date.monthValue}" +
                                     "/${state.date.year}"
@@ -113,7 +113,7 @@ class TrackerOverviewViewModel @Inject constructor(
                     trackedFoods = foods,
                     mealsOfDay = state.mealsOfDay.map { meal ->
                         val nutrientsForMeal =
-                            nutrientResult.mealNutrients[meal.mealType]
+                            nutrientResult.mealNutrients[meal.mealOfDayType]
                                 ?: return@map meal.copy(
                                     carb = 0,
                                     fat = 0,

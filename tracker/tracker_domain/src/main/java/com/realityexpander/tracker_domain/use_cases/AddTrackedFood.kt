@@ -1,6 +1,6 @@
 package com.realityexpander.tracker_domain.use_cases
 
-import com.realityexpander.tracker_domain.model.MealType
+import com.realityexpander.tracker_domain.model.MealOfDayType
 import com.realityexpander.tracker_domain.model.TrackableFood
 import com.realityexpander.tracker_domain.model.TrackedFood
 import com.realityexpander.tracker_domain.repository.TrackerRepository
@@ -14,7 +14,7 @@ class AddTrackedFood(
     suspend operator fun invoke(
         food: TrackableFood,
         amount: Int,
-        mealType: MealType,
+        mealOfDayType: MealOfDayType,
         date: LocalDate
     ) {
         return repository.insertTrackedFood(
@@ -26,7 +26,7 @@ class AddTrackedFood(
                 protein  = ((food.proteinPer100g/100f) * amount).roundToInt(),
                 calories = ((food.caloriesPer100g/100f) * amount).roundToInt(),
                 amount = amount,
-                mealType = mealType,
+                mealOfDayType = mealOfDayType,
                 date = date
             )
         )

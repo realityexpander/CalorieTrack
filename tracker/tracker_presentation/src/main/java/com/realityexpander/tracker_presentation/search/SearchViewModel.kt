@@ -106,7 +106,7 @@ class SearchViewModel @Inject constructor(
             trackerUseCases.addTrackedFood(
                 food = uiState?.food ?: return@launch,
                 amount = uiState.amount.toIntOrNull() ?: return@launch,
-                mealType = event.mealType,
+                mealOfDayType = event.mealOfDayType,
                 date = event.date
             )
 

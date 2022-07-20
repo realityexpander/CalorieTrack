@@ -1,14 +1,14 @@
 package com.realityexpander.tracker_domain.model
 
-sealed class MealType(val name: String) {
-    object Breakfast : MealType("breakfast")
-    object Lunch : MealType("lunch")
-    object Dinner : MealType("dinner")
-    object Snack : MealType("snack")
+sealed class MealOfDayType(val name: String) {
+    object Breakfast : MealOfDayType("breakfast")
+    object Lunch : MealOfDayType("lunch")
+    object Dinner : MealOfDayType("dinner")
+    object Snack : MealOfDayType("snack")
 
 
     companion object {
-        fun fromString(name: String): MealType {
+        fun fromString(name: String): MealOfDayType {
             return when (name) {
                 "breakfast" -> Breakfast
                 "lunch" -> Lunch
