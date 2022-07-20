@@ -71,7 +71,8 @@ fun SearchScreen(
             },
             onFocusChanged = {
                 viewModel.onEvent(SearchEvent.OnSearchFocusChange(it.isFocused))
-            }
+            },
+            shouldShowHint = state.isHintVisible
         )
     }
 }

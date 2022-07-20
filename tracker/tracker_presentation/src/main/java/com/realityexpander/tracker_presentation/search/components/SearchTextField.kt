@@ -36,7 +36,7 @@ fun SearchTextField(
     onSearch: () -> Unit,
     modifier: Modifier = Modifier,
     hint: String = stringResource(id = R.string.search),
-    shouldShowHint: Boolean = false,
+    shouldShowHint: Boolean = true,
     onFocusChanged: (FocusState) -> Unit  // to toggle the hint
 ) {
     val spacing = LocalSpacing.current
@@ -76,7 +76,7 @@ fun SearchTextField(
         if(shouldShowHint) {
             Text(
                 text = hint,
-                style = MaterialTheme.typography.body1,
+                style = MaterialTheme.typography.h4,
                 fontWeight = FontWeight.Light,
                 color = Color.LightGray,
                 modifier = Modifier
