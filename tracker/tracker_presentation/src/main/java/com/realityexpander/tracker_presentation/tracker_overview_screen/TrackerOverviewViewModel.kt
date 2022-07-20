@@ -16,6 +16,7 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
+import java.time.LocalDate
 import javax.inject.Inject
 
 @HiltViewModel
@@ -58,6 +59,12 @@ class TrackerOverviewViewModel @Inject constructor(
 
                     refreshFoodsData()
                 }
+            }
+            TrackerOverviewEvent.OnTodayClick -> {
+                state = state.copy(
+                    date = LocalDate.now()
+                )
+                refreshFoodsData()
             }
             TrackerOverviewEvent.OnNextDayClick -> {
                 state = state.copy(

@@ -37,6 +37,9 @@ fun TrackerOverviewScreen(
                 onNextDayClick = {
                     viewModel.onEvent(TrackerOverviewEvent.OnNextDayClick)
                 },
+                onTodayClick = {
+                    viewModel.onEvent(TrackerOverviewEvent.OnTodayClick)
+                },
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(horizontal = spacing.spaceMedium)

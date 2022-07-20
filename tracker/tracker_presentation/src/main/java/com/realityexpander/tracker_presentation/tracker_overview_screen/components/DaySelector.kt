@@ -2,6 +2,7 @@ package com.realityexpander.tracker_presentation.tracker_overview_screen.compone
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.text.ClickableText
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
 import androidx.compose.material.MaterialTheme
@@ -13,6 +14,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.AnnotatedString
 import com.realityexpander.tracker_presentation.R
 import java.time.LocalDate
 
@@ -21,6 +23,7 @@ fun DaySelector(
     date: LocalDate,
     onPreviousDayClick: () -> Unit,
     onNextDayClick: () -> Unit,
+    onTodayClick: (Int) -> Unit,
     modifier: Modifier = Modifier
 ) {
     Row(
@@ -34,9 +37,10 @@ fun DaySelector(
                 contentDescription = stringResource(id = R.string.previous_day)
             )
         }
-        Text(
-            text = parseDateText(date = date),
-            style = MaterialTheme.typography.h2
+        ClickableText(
+            text = AnnotatedString(parseDateText(date = date)),
+            style = MaterialTheme.typography.h2,
+            onClick = onTodayClick
         )
         IconButton(onClick = onNextDayClick) {
             Icon(
