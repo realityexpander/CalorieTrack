@@ -3,11 +3,10 @@ package com.realityexpander.calorietrack.di
 import android.app.Application
 import android.content.Context.MODE_PRIVATE
 import android.content.SharedPreferences
-import com.realityexpander.core.data.preferences.DefaultPreferences
+import com.realityexpander.core.data.preferences.PreferencesImpl
 import com.realityexpander.core.domain.preferences.Preferences
 import com.realityexpander.core.domain.use_case.FilterKeepDigitsAndDecimals
 import com.realityexpander.core.domain.use_case.FilterKeepDigits
-import com.realityexpander.onboarding_domain.use_cases.ValidateNutrients
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -21,7 +20,7 @@ object AppModule {
     @Provides
     @Singleton
     fun providePreferences(sharedPreferences: SharedPreferences): Preferences {
-        return DefaultPreferences(sharedPreferences)
+        return PreferencesImpl(sharedPreferences)
     }
 
     @Provides

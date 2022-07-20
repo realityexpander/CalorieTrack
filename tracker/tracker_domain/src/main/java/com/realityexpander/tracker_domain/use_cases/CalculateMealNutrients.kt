@@ -15,7 +15,7 @@ class CalculateMealNutrients(
     data class MealNutrients(
         val protein: Int,
         val fat: Int,
-        val carbs: Int,
+        val carb: Int,
         val calories: Int,
         val mealType: MealType
     )
@@ -24,7 +24,7 @@ class CalculateMealNutrients(
         val carbGoal: Int,
         val proteinGoal: Int,
         val fatGoal: Int,
-        val calorieGoal: Int,
+        val caloriesGoal: Int,
 
         val totalCarb: Int,
         val totalProtein: Int,
@@ -44,7 +44,7 @@ class CalculateMealNutrients(
                 val foods = entry.value
 
                 MealNutrients(
-                    carbs = foods.sumOf { food -> food.carbs },
+                    carb = foods.sumOf { food -> food.carbs },
                     fat = foods.sumOf { food -> food.fat },
                     protein = foods.sumOf { food -> food.protein },
                     calories = foods.sumOf { food -> food.calories },
@@ -53,7 +53,7 @@ class CalculateMealNutrients(
 
             }
 
-        val totalCarbs = allNutrients.values.sumOf { it.carbs }
+        val totalCarbs = allNutrients.values.sumOf { it.carb }
         val totalFat = allNutrients.values.sumOf { it.fat }
         val totalProtein = allNutrients.values.sumOf { it.protein }
         val totalCalories = allNutrients.values.sumOf { it.calories }
@@ -68,7 +68,7 @@ class CalculateMealNutrients(
             carbGoal = carbGoal,
             proteinGoal = proteinGoal,
             fatGoal = fatGoal,
-            calorieGoal = calorieGoal,
+            caloriesGoal = calorieGoal,
             totalCarb = totalCarbs,
             totalProtein = totalProtein,
             totalFat = totalFat,
