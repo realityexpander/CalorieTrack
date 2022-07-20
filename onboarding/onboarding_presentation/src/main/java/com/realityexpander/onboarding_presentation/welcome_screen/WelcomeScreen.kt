@@ -33,11 +33,8 @@ fun WelcomeScreen(
             textAlign = TextAlign.Center,
             style = MaterialTheme.typography.h1,
         )
-        Text(
-            text = "This is a welcome screen",
-            style = MaterialTheme.typography.body1
-        )
         Spacer(modifier = Modifier.height(spacing.spaceMedium))
+
         ActionButton(text = stringResource(id = R.string.next),
             onClick = {
               onNavigate(UiEvent.Navigate(Route.GENDER))
