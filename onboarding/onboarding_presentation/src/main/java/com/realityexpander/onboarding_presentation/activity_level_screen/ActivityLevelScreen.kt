@@ -21,7 +21,7 @@ import kotlinx.coroutines.flow.collect
 
 @Composable
 fun ActivityLevelScreen(
-    onNavigate: (UiEvent.Navigate) -> Unit,
+    onNextClick: () -> Unit,
     viewModel: ActivityLevelViewModel = hiltViewModel(),
 ) {
 
@@ -29,7 +29,7 @@ fun ActivityLevelScreen(
     LaunchedEffect(key1 = true) {
         viewModel.uiEvent.collect { event ->
             when (event) {
-                is UiEvent.Navigate -> onNavigate(event)
+                is UiEvent.Success -> onNextClick()
                 else -> {}
             }
         }
@@ -48,7 +48,7 @@ fun ActivityLevelScreen(
 
 
             Text(
-                text = stringResource(id = R.string.whats_your_gender),
+                text = stringResource(id = R.string.whats_your_activity_level),
                 style = MaterialTheme.typography.h3
             )
             Spacer(modifier = Modifier.height(spacing.spaceMedium))

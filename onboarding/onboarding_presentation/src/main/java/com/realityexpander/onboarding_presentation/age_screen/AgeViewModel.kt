@@ -5,7 +5,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import com.realityexpander.core.domain.preferences.Preferences
-import com.realityexpander.core.navigation.Route
 import com.realityexpander.core.util.UiEvent
 import dagger.hilt.android.lifecycle.HiltViewModel
 import androidx.lifecycle.viewModelScope
@@ -45,7 +44,7 @@ class AgeViewModel @Inject constructor(
             }
 
             preferences.saveAge(ageInt)
-            _uiEvent.send(UiEvent.Navigate(Route.HEIGHT))
+            _uiEvent.send(UiEvent.Success)
         }
     }
 }

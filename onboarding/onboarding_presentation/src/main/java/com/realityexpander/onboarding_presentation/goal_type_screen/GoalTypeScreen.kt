@@ -14,7 +14,6 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.realityexpander.core.util.UiEvent
 import com.realityexpander.core_ui.LocalSpacing
 import com.realityexpander.core.R
-import com.realityexpander.core.domain.model.ActivityLevel
 import com.realityexpander.core.domain.model.GoalType
 import com.realityexpander.onboarding_presentation.components.ActionButton
 import com.realityexpander.onboarding_presentation.components.SelectableButton
@@ -22,7 +21,7 @@ import kotlinx.coroutines.flow.collect
 
 @Composable
 fun GoalTypeScreen(
-    onNavigate: (UiEvent.Navigate) -> Unit,
+    onNextClick: () -> Unit,
     viewModel: GoalTypeViewModel = hiltViewModel(),
 ) {
 
@@ -30,7 +29,7 @@ fun GoalTypeScreen(
     LaunchedEffect(key1 = true) {
         viewModel.uiEvent.collect { event ->
             when (event) {
-                is UiEvent.Navigate -> onNavigate(event)
+                is UiEvent.Success -> onNextClick()
                 else -> {}
             }
         }
@@ -49,7 +48,7 @@ fun GoalTypeScreen(
 
 
             Text(
-                text = stringResource(id = R.string.whats_your_gender),
+                text = stringResource(id = R.string.lose_keep_or_gain_weight),
                 style = MaterialTheme.typography.h3
             )
             Spacer(modifier = Modifier.height(spacing.spaceMedium))

@@ -4,13 +4,11 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import coil.annotation.ExperimentalCoilApi
-import com.realityexpander.core.util.UiEvent
 import com.realityexpander.core_ui.LocalSpacing
 import com.realityexpander.tracker_presentation.tracker_overview_screen.components.*
 import com.realityexpander.core.R
@@ -18,21 +16,12 @@ import com.realityexpander.core.R
 @OptIn(ExperimentalCoilApi::class)
 @Composable
 fun TrackerOverviewScreen(
-    onNavigate: (UiEvent.Navigate) -> Unit,
+    onNavigateToSearch: (String, Int, Int, Int) -> Unit,  // mealOfDayName, dayOfMonth, month, year
     viewModel: TrackerOverviewViewModel = hiltViewModel()
 ) {
     val spacing = LocalSpacing.current
     val state = viewModel.state
     val context = LocalContext.current
-
-    LaunchedEffect(key1 = context) {
-        viewModel.uiEvent.collect { event ->
-            when(event) {
-                is UiEvent.Navigate -> onNavigate(event)
-                else -> Unit
-            }
-        }
-    }
 
     LazyColumn(
         modifier = Modifier
@@ -100,8 +89,11 @@ fun TrackerOverviewScreen(
                                 mealOfDay.name.asString(context)
                             ),
                             onClick = {
-                                viewModel.onEvent(
-                                    TrackerOverviewEvent.OnAddFoodClick(mealOfDay)
+                                onNavigateToSearch(
+                                    mealOfDay.mealOfDayType.name,
+                                    state.date.dayOfMonth,
+                                    state.date.monthValue,
+                                    state.date.year
                                 )
                             },
                             modifier = Modifier.fillMaxWidth()

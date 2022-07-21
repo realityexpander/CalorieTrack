@@ -1,4 +1,4 @@
-package com.realityexpander.core.navigation
+package com.realityexpander.calorietrack.navigation
 
 object Route {
     const val WELCOME = "welcome"

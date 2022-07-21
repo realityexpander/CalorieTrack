@@ -8,5 +8,4 @@ sealed class TrackerOverviewEvent{
     object OnTodayClick: TrackerOverviewEvent()
     data class OnToggleMealOfDayClick(val mealOfDay: MealOfDay): TrackerOverviewEvent()
     data class OnDeleteTrackedFoodClick(val trackedFood: TrackedFood): TrackerOverviewEvent()
-    data class OnAddFoodClick(val mealOfDay: MealOfDay): TrackerOverviewEvent()
 }

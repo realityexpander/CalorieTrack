@@ -21,7 +21,7 @@ fun UnitTextField(
     onValueChange: (String) -> Unit,
     units: String,  // e.g. "m", "ft", "km"
     textStyle: TextStyle = TextStyle(
-        color = MaterialTheme.colors.primaryVariant,
+        color = MaterialTheme.colors.onBackground,
         fontSize = 70.sp,
 
     ),

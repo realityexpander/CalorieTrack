@@ -5,7 +5,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import com.realityexpander.core.domain.preferences.Preferences
-import com.realityexpander.core.navigation.Route
 import com.realityexpander.core.util.UiEvent
 import dagger.hilt.android.lifecycle.HiltViewModel
 import androidx.lifecycle.viewModelScope
@@ -33,7 +32,7 @@ class GoalTypeViewModel @Inject constructor(
     fun onNextClick() {
         viewModelScope.launch {
             preferences.saveGoalType(selectedGoalType)
-            _uiEvent.send(UiEvent.Navigate(Route.NUTRIENT_GOAL))
+            _uiEvent.send(UiEvent.Success)
         }
     }
 }
