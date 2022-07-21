@@ -12,7 +12,7 @@ import kotlin.math.roundToInt
 class CalculateMealNutrients(
     private val preferences: Preferences
 ) {
-    data class MealNutrients(
+    data class MealOfDayNutrients(
         val protein: Int,
         val fat: Int,
         val carb: Int,
@@ -31,32 +31,34 @@ class CalculateMealNutrients(
         val totalFat: Int,
         val totalCalories: Int,
 
-        val mealNutrients: Map<MealOfDayType, MealNutrients>
+        val mealOfDayNutrients: Map<MealOfDayType, MealOfDayNutrients>
     )
 
     operator fun invoke(trackedFoods: List<TrackedFood>): Result {
-        val allNutrients = trackedFoods
-            .groupBy{ trackedFood ->
+        val mealOfDayNutrients =
+            trackedFoods.groupBy{ trackedFood ->
                 trackedFood.mealOfDayType
             }
             .mapValues { entry ->
-                val mealType = entry.key
+                val mealOfDayType = entry.key
                 val foods = entry.value
 
-                MealNutrients(
+                MealOfDayNutrients(
                     carb = foods.sumOf { food -> food.carbs },
                     fat = foods.sumOf { food -> food.fat },
                     protein = foods.sumOf { food -> food.protein },
                     calories = foods.sumOf { food -> food.calories },
-                    mealOfDayType = mealType
+                    mealOfDayType = mealOfDayType
                 )
 
             }
 
-        val totalCarbs = allNutrients.values.sumOf { it.carb }
-        val totalFat = allNutrients.values.sumOf { it.fat }
-        val totalProtein = allNutrients.values.sumOf { it.protein }
-        val totalCalories = allNutrients.values.sumOf { it.calories }
+        val totalCarbs = mealOfDayNutrients.values.sumOf {
+            it.carb
+        }
+        val totalFat = mealOfDayNutrients.values.sumOf { it.fat }
+        val totalProtein = mealOfDayNutrients.values.sumOf { it.protein }
+        val totalCalories = mealOfDayNutrients.values.sumOf { it.calories }
 
         val userInfo = preferences.loadUserInfo()
         val calorieGoal = dailyCalorieRequirement(userInfo)
@@ -73,7 +75,7 @@ class CalculateMealNutrients(
             totalProtein = totalProtein,
             totalFat = totalFat,
             totalCalories = totalCalories,
-            mealNutrients = allNutrients
+            mealOfDayNutrients = mealOfDayNutrients
         )
 
     }

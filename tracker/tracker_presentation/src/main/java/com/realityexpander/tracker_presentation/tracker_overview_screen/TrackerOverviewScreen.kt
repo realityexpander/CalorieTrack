@@ -63,11 +63,11 @@ fun TrackerOverviewScreen(
         }
 
         // Meals
-        items(state.mealsOfDay) { meal ->
-            ExpandableMeal(
-                meal = meal,
+        items(state.mealsOfDay) { mealOfDay ->
+            ExpandableMealOfDay(
+                mealOfDay = mealOfDay,
                 onToggleClick = {
-                    viewModel.onEvent(TrackerOverviewEvent.OnToggleMealClick(meal))
+                    viewModel.onEvent(TrackerOverviewEvent.OnToggleMealOfDayClick(mealOfDay))
                 },
                 content = {
                     Column(
@@ -75,8 +75,13 @@ fun TrackerOverviewScreen(
                             .fillMaxWidth()
                             .padding(horizontal = spacing.spaceSmall)
                     ) {
+                        // Does this tracked food belong to this mealOfDay?
+                        val foods = state.trackedFoods.filter { food ->
+                            food.mealOfDayType == mealOfDay.mealOfDayType
+                        }
+
                         // List all the foods for this mealOfDay
-                        state.trackedFoods.forEach { food ->
+                        foods.forEach { food ->
                             TrackedFoodItem(
                                 trackedFood = food,
                                 onDeleteClick = {
@@ -92,11 +97,11 @@ fun TrackerOverviewScreen(
                         AddButton(
                             text = stringResource(
                                 id = R.string.add_meal,
-                                meal.name.asString(context)
+                                mealOfDay.name.asString(context)
                             ),
                             onClick = {
                                 viewModel.onEvent(
-                                    TrackerOverviewEvent.OnAddFoodClick(meal)
+                                    TrackerOverviewEvent.OnAddFoodClick(mealOfDay)
                                 )
                             },
                             modifier = Modifier.fillMaxWidth()

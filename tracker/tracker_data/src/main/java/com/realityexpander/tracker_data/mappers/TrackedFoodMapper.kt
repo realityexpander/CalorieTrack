@@ -34,7 +34,7 @@ fun TrackedFood.toTrackedFoodEntity(): TrackedFoodEntity {
         fat = fat,
         calories = calories,
 
-        mealType = mealOfDayType.toString(),
+        mealType = mealOfDayType.name,
         amount = amount,
 
         year = date.year,

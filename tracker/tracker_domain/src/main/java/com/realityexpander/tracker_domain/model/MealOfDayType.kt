@@ -6,7 +6,6 @@ sealed class MealOfDayType(val name: String) {
     object Dinner : MealOfDayType("dinner")
     object Snack : MealOfDayType("snack")
 
-
     companion object {
         fun fromString(name: String): MealOfDayType {
             return when (name) {
@@ -15,7 +14,7 @@ sealed class MealOfDayType(val name: String) {
                 "dinner" -> Dinner
                 "snack" -> Snack
                 else -> {
-                    println("MealOfDayType - fromString(): Unknown meal of day type: $name")
+                    println("MealOfDayType - fromString(): Unknown 'mealOfDayType' name: $name")
 
                     Lunch
                 } //throw IllegalArgumentException("Unknown meal type: $name")

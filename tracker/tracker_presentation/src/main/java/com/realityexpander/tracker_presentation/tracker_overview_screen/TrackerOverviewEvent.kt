@@ -6,7 +6,7 @@ sealed class TrackerOverviewEvent{
     object OnNextDayClick: TrackerOverviewEvent()
     object OnPreviousDayClick: TrackerOverviewEvent()
     object OnTodayClick: TrackerOverviewEvent()
-    data class OnToggleMealClick(val meal: Meal): TrackerOverviewEvent()
+    data class OnToggleMealOfDayClick(val mealOfDay: MealOfDay): TrackerOverviewEvent()
     data class OnDeleteTrackedFoodClick(val trackedFood: TrackedFood): TrackerOverviewEvent()
-    data class OnAddFoodClick(val meal: Meal): TrackerOverviewEvent()
+    data class OnAddFoodClick(val mealOfDay: MealOfDay): TrackerOverviewEvent()
 }

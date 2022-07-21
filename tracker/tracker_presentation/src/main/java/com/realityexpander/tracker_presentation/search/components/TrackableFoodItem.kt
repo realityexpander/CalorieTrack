@@ -28,14 +28,12 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.annotation.ExperimentalCoilApi
 import coil.compose.rememberImagePainter
 import com.realityexpander.core.R
 import com.realityexpander.core_ui.LocalSpacing
-import com.realityexpander.tracker_domain.model.TrackableFood
 import com.realityexpander.tracker_presentation.components.NutrientInfo
 import com.realityexpander.tracker_presentation.search.TrackableFoodItemUiState
 
@@ -142,7 +140,7 @@ fun TrackableFoodItem(
 
                         NutrientInfo(
                             nutrientName = stringResource(id = R.string.carbs),
-                            amount = food.carbsPer100g,
+                            amount = food.carbPer100g,
                             unit = stringResource(id = R.string.grams),
                             amountTextSize = 16.sp,
                             unitTextSize = 12.sp,

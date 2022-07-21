@@ -1,6 +1,6 @@
 package com.realityexpander.tracker_presentation.tracker_overview_screen.components
 
-import androidx.compose.animation.core.animateIntAsState
+import androidx.compose.animation.core.*
 import androidx.compose.foundation.background
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.MaterialTheme
@@ -28,10 +28,12 @@ fun NutrientsHeader(
 ) {
     val spacing = LocalSpacing.current
     val animatedCalorieCount = animateIntAsState(
-        targetValue = state.totalCalories
+        targetValue = state.totalCalories,
+        animationSpec = tween(durationMillis = 1000, easing = FastOutSlowInEasing)
     )
     val animatedCalorieGoal = animateIntAsState(
-        targetValue = state.caloriesGoal
+        targetValue = state.caloriesGoal,
+        animationSpec = tween(durationMillis = 1500, easing = FastOutSlowInEasing)
     )
 
     Column(

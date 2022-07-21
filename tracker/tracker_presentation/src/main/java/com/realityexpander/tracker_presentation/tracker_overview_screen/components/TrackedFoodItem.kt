@@ -75,48 +75,43 @@ fun TrackedFoodItem(
                     )
                 )
         )
-        Spacer(modifier = Modifier.width(spacing.spaceMedium))
-
-        // Food product name
-        Column(
-            modifier = Modifier.weight(1f)
-        ) {
-            Text(
-                text = trackedFood.name,
-                style = MaterialTheme.typography.body1,
-                overflow = TextOverflow.Ellipsis,
-                maxLines = 2
-            )
-            Spacer(modifier = Modifier.height(spacing.spaceExtraSmall))
-            Text(
-                text = stringResource(
-                    id = R.string.nutrient_info,
-                    trackedFood.amount,
-                    trackedFood.calories
-                ),
-                style = MaterialTheme.typography.body2
-            )
-        }
-        Spacer(modifier = Modifier.width(spacing.spaceMedium))
+        Spacer(modifier = Modifier.width(spacing.spaceSmall))
 
         Column(
-            modifier = Modifier.fillMaxHeight(),
-            verticalArrangement = Arrangement.Center
+            verticalArrangement = Arrangement.SpaceBetween,
         ) {
-            // Delete item button
-            Icon(
-                imageVector = Icons.Default.Delete,
-                contentDescription = stringResource(id = R.string.delete),
-                modifier = Modifier
-                    .align(Alignment.End)
-                    .clickable { onDeleteClick() }
-            )
-            Spacer(modifier = Modifier.height(spacing.spaceExtraSmall))
+            Row{
+                Text(
+                    text = trackedFood.name,
+                    style = MaterialTheme.typography.h5,
+                    overflow = TextOverflow.Ellipsis,
+                    maxLines = 2,
+                    modifier = Modifier.weight(5f)
+                )
+                Spacer(modifier = Modifier.width(spacing.spaceExtraSmall))
 
-            // Nutrient info
-            Row(
-                verticalAlignment = Alignment.CenterVertically
-            ) {
+                Icon(
+                    imageVector = Icons.Default.Delete,
+                    contentDescription = stringResource(id = R.string.delete),
+                    modifier = Modifier
+                        .weight(1f)
+                        .clickable { onDeleteClick() }
+                )
+            }
+            Spacer(modifier = Modifier.height(spacing.spaceSmall))
+
+            Row {
+                Text(
+                    text = stringResource(
+                        id = R.string.nutrient_info,
+                        trackedFood.amount,
+                        trackedFood.calories
+                    ),
+                    style = MaterialTheme.typography.body2,
+                    modifier = Modifier.weight(2f)
+                )
+                Spacer(modifier = Modifier.width(spacing.spaceSmall))
+
                 NutrientInfo(
                     nutrientName = stringResource(id = R.string.carbs),
                     amount = trackedFood.carbs,
@@ -147,5 +142,77 @@ fun TrackedFoodItem(
                 )
             }
         }
+
+
+//        // Food product name
+//        Column(
+//            modifier = Modifier.weight(1f)
+//        ) {
+//            Text(
+//                text = trackedFood.name,
+//                style = MaterialTheme.typography.h5,
+//                overflow = TextOverflow.Ellipsis,
+//                maxLines = 2
+//            )
+//            Spacer(modifier = Modifier.height(spacing.spaceExtraSmall))
+//            Text(
+//                text = stringResource(
+//                    id = R.string.nutrient_info,
+//                    trackedFood.amount,
+//                    trackedFood.calories
+//                ),
+//                style = MaterialTheme.typography.body2
+//            )
+//        }
+//        Spacer(modifier = Modifier.width(spacing.spaceMedium))
+//
+//        Column(
+//            modifier = Modifier.fillMaxHeight(),
+//            verticalArrangement = Arrangement.Center
+//        ) {
+//            // Delete item button
+//            Icon(
+//                imageVector = Icons.Default.Delete,
+//                contentDescription = stringResource(id = R.string.delete),
+//                modifier = Modifier
+//                    .align(Alignment.End)
+//                    .clickable { onDeleteClick() }
+//            )
+//            Spacer(modifier = Modifier.height(spacing.spaceExtraSmall))
+//
+//            // Nutrient info
+//            Row(
+//                verticalAlignment = Alignment.CenterVertically
+//            ) {
+//                NutrientInfo(
+//                    nutrientName = stringResource(id = R.string.carbs),
+//                    amount = trackedFood.carbs,
+//                    unit = stringResource(id = R.string.grams),
+//                    amountTextSize = 16.sp,
+//                    unitTextSize = 12.sp,
+//                    nameTextStyle = MaterialTheme.typography.body2
+//                )
+//                Spacer(modifier = Modifier.width(spacing.spaceSmall))
+//
+//                NutrientInfo(
+//                    nutrientName = stringResource(id = R.string.protein),
+//                    amount = trackedFood.protein,
+//                    unit = stringResource(id = R.string.grams),
+//                    amountTextSize = 16.sp,
+//                    unitTextSize = 12.sp,
+//                    nameTextStyle = MaterialTheme.typography.body2
+//                )
+//                Spacer(modifier = Modifier.width(spacing.spaceSmall))
+//
+//                NutrientInfo(
+//                    nutrientName = stringResource(id = R.string.fat),
+//                    amount = trackedFood.fat,
+//                    unit = stringResource(id = R.string.grams),
+//                    amountTextSize = 16.sp,
+//                    unitTextSize = 12.sp,
+//                    nameTextStyle = MaterialTheme.typography.body2
+//                )
+//            }
+//        }
     }
 }

@@ -16,5 +16,5 @@ data class TrackerOverviewState(
 
     val date: LocalDate = LocalDate.now(),
     val trackedFoods: List<TrackedFood> = emptyList(),
-    val mealsOfDay: List<Meal> = defaultMeals
+    val mealsOfDay: List<MealOfDay> = mealOfDayDefaults
 )

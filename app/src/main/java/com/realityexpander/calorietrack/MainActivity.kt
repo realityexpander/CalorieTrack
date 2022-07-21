@@ -15,6 +15,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.realityexpander.calorietrack.navigation.navigate
 import com.realityexpander.calorietrack.ui.theme.CalorieTrackTheme
+import com.realityexpander.core.domain.preferences.Preferences
 import com.realityexpander.core.navigation.Route
 import com.realityexpander.onboarding_presentation.welcome_screen.WelcomeScreen
 import com.realityexpander.onboarding_presentation.activity_level_screen.ActivityLevelScreen
@@ -27,13 +28,20 @@ import com.realityexpander.onboarding_presentation.weight_screen.WeightScreen
 import com.realityexpander.tracker_presentation.search.SearchScreen
 import com.realityexpander.tracker_presentation.tracker_overview_screen.TrackerOverviewScreen
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint  // due to injecting viewModels in the composables
 class MainActivity : ComponentActivity() {
 
+    @Inject
+    lateinit var preferences: Preferences
+
     @OptIn(ExperimentalComposeUiApi::class)  // For the LocalSoftwareKeyboardController
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val shouldShowOnboarding = preferences.shouldShowOnboarding()
+
         setContent {
             CalorieTrackTheme {
                 val navController = rememberNavController()
@@ -45,7 +53,10 @@ class MainActivity : ComponentActivity() {
                 ) {
                     NavHost(
                         navController = navController,
-                        startDestination = Route.WELCOME
+                        startDestination = if(shouldShowOnboarding)
+                                Route.WELCOME
+                            else
+                                Route.TRACKER_OVERVIEW
                     ) {
                         composable(Route.WELCOME) {
                             WelcomeScreen(onNavigate = navController::navigate)

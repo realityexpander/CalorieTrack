@@ -9,9 +9,14 @@ fun ProductDto.toTrackableFood(): TrackableFood? {
         name = productName ?: return null,
         imageUrl = imageFrontThumbUrl,
 
-        carbsPer100g = nutriments.carbohydrates100g.roundToInt(),
-        fatPer100g = nutriments.fat100g.roundToInt(),
-        proteinPer100g = nutriments.proteins100g.roundToInt(),
-        caloriesPer100g = nutriments.energyKcal100g.roundToInt(),
+//        carbsPer100g = nutriments.carbohydrates100g.roundToInt(),
+//        fatPer100g = nutriments.fat100g.roundToInt(),
+//        proteinPer100g = nutriments.proteins100g.roundToInt(),
+//        caloriesPer100g = nutriments.energyKcal100g.roundToInt(),
+
+        carbPer100g     = (nutriments.carbohydratesg).roundToInt(),
+        fatPer100g      = (nutriments.fatsg).roundToInt(),
+        proteinPer100g  = (nutriments.proteinsg).roundToInt(),
+        caloriesPer100g = (nutriments.energyKcalg).roundToInt(),
     )
 }

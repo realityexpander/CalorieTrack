@@ -7,7 +7,7 @@ import com.realityexpander.core.R
 
 
 // UI state only for the UI for this screen (not needed anywhere else)
-data class Meal(
+data class MealOfDay(
     val name: UiText, // meal type: breakfast, lunch, dinner, snack
     @DrawableRes val drawableRes: Int,
     val mealOfDayType: MealOfDayType,
@@ -19,8 +19,8 @@ data class Meal(
 )
 
 
-val defaultMeals = listOf(
-    Meal(
+val mealOfDayDefaults = listOf(
+    MealOfDay(
         name = UiText.StringResource(R.string.breakfast),
         drawableRes = R.drawable.ic_breakfast,
         mealOfDayType = MealOfDayType.Breakfast,
@@ -29,28 +29,28 @@ val defaultMeals = listOf(
         fat = 0,
         calories = 0
     ),
-    Meal(
+    MealOfDay(
         name = UiText.StringResource(R.string.lunch),
         drawableRes = R.drawable.ic_lunch,
-        mealOfDayType = MealOfDayType.Breakfast,
+        mealOfDayType = MealOfDayType.Lunch,
         carb = 0,
         protein = 0,
         fat = 0,
         calories = 0
     ),
-    Meal(
+    MealOfDay(
         name = UiText.StringResource(R.string.dinner),
         drawableRes = R.drawable.ic_dinner,
-        mealOfDayType = MealOfDayType.Breakfast,
+        mealOfDayType = MealOfDayType.Dinner,
         carb = 0,
         protein = 0,
         fat = 0,
         calories = 0
     ),
-    Meal(
+    MealOfDay(
         name = UiText.StringResource(R.string.snacks),
         drawableRes = R.drawable.ic_snack,
-        mealOfDayType = MealOfDayType.Breakfast,
+        mealOfDayType = MealOfDayType.Snack,
         carb = 0,
         protein = 0,
         fat = 0,
