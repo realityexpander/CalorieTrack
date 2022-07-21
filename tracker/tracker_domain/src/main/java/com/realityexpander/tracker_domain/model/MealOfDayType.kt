@@ -14,7 +14,11 @@ sealed class MealOfDayType(val name: String) {
                 "lunch" -> Lunch
                 "dinner" -> Dinner
                 "snack" -> Snack
-                else -> throw IllegalArgumentException("Unknown meal type: $name")
+                else -> {
+                    println("MealOfDayType - fromString(): Unknown meal of day type: $name")
+
+                    Lunch
+                } //throw IllegalArgumentException("Unknown meal type: $name")
             }
         }
     }

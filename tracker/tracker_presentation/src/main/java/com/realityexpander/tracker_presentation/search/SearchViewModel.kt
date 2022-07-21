@@ -19,7 +19,7 @@ import javax.inject.Inject
 @HiltViewModel
 class SearchViewModel @Inject constructor(
     private val trackerUseCases: TrackerUseCases,
-    private val filterOutDigits: FilterKeepDigits
+    private val filterKeepDigits: FilterKeepDigits
 ): ViewModel() {
 
     var state by mutableStateOf(SearchState())
@@ -35,11 +35,11 @@ class SearchViewModel @Inject constructor(
             }
             is SearchEvent.OnAmountForFoodChange -> {
                 state = state.copy(
-                    trackableFood = state.trackableFood.map { foodUiState ->
-                        if(foodUiState.food == event.food) {
-                            foodUiState.copy(amount = filterOutDigits(event.amount))
+                    trackableFoodItemUiStates = state.trackableFoodItemUiStates.map { foodItemUiState ->
+                        if(foodItemUiState.food == event.food) {
+                            foodItemUiState.copy(amount = filterKeepDigits(event.amount))
                         } else
-                            foodUiState
+                            foodItemUiState
                     }
                 )
             }
@@ -48,11 +48,13 @@ class SearchViewModel @Inject constructor(
             }
             is SearchEvent.OnToggleTrackableFood -> {
                 state = state.copy(
-                    trackableFood = state.trackableFood.map { foodUiState ->
-                        if(foodUiState.food == event.food) {
-                            foodUiState.copy(isExpanded = !foodUiState.isExpanded)
+
+                    // Search for matching food item
+                    trackableFoodItemUiStates = state.trackableFoodItemUiStates.map { foodItemUiState ->
+                        if(foodItemUiState.food == event.food) {
+                            foodItemUiState.copy(isExpanded = !foodItemUiState.isExpanded)
                         } else
-                            foodUiState
+                            foodItemUiState
                     }
                 )
             }
@@ -61,8 +63,8 @@ class SearchViewModel @Inject constructor(
                     isHintVisible = !event.isFocused && state.query.isBlank()
                 )
             }
-            is SearchEvent.OnTrackFoodClick -> {
-                trackFood(event)
+            is SearchEvent.OnAddTrackedFoodClick -> {
+                addTrackedFood(event)
             }
         }
     }
@@ -71,7 +73,7 @@ class SearchViewModel @Inject constructor(
         viewModelScope.launch {
             state = state.copy(
                 isSearching = true,
-                trackableFood = emptyList()
+                trackableFoodItemUiStates = emptyList()
             )
 
             trackerUseCases
@@ -79,11 +81,11 @@ class SearchViewModel @Inject constructor(
                 .onSuccess { foods ->
                     state = state.copy(
                         // map the trackable food to the ui state of the trackable foods
-                        trackableFood = foods.map { trackableFood ->
-                            TrackableFoodUiState(trackableFood)
+                        trackableFoodItemUiStates = foods.map { trackableFood ->
+                            TrackableFoodItemUiState(trackableFood)
                         },
                         isSearching = false,
-                        query = ""  // reset the query
+                        //query = ""  // reset the query
                     )
                 }
                 .onFailure {
@@ -97,9 +99,9 @@ class SearchViewModel @Inject constructor(
         }
     }
 
-    private fun trackFood(event: SearchEvent.OnTrackFoodClick) {
+    private fun addTrackedFood(event: SearchEvent.OnAddTrackedFoodClick) {
         viewModelScope.launch {
-            val uiState = state.trackableFood.find { foodUiState ->
+            val uiState = state.trackableFoodItemUiStates.find { foodUiState ->
                 foodUiState.food == event.food
             }
 

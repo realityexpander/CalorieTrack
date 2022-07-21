@@ -20,7 +20,7 @@ sealed class SearchEvent {
             val amount: String
         ) : SearchEvent()
 
-    data class OnTrackFoodClick(
+    data class OnAddTrackedFoodClick(
         val food: TrackableFood,
         val mealOfDayType: MealOfDayType,
         val date: LocalDate
