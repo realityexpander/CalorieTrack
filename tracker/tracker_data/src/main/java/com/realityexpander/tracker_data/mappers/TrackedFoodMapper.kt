@@ -11,7 +11,7 @@ fun TrackedFoodEntity.toTrackedFood(): TrackedFood {
         name = name,
         imageUrl = imageUrl,
 
-        carbs = carbs,
+        carb = carbs,
         protein = protein,
         fat = fat,
         calories = calories,
@@ -29,7 +29,7 @@ fun TrackedFood.toTrackedFoodEntity(): TrackedFoodEntity {
         name = name,
         imageUrl = imageUrl,
 
-        carbs = carbs,
+        carbs = carb,
         protein = protein,
         fat = fat,
         calories = calories,

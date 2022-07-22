@@ -14,7 +14,7 @@ data class TrackedFood(
     val amount: Int, // in grams
     val calories: Int, // in kcal
 
-    val carbs: Int,
+    val carb: Int,
     val protein: Int,
     val fat: Int,
 

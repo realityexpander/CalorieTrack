@@ -30,7 +30,7 @@ class TrackerRepositoryImpl(
                 searchDto.products
                     .filter { product ->
 
-                        // filter out products with kCal out of normal range
+                        // filter out products with energyKcalg out of normal range
                         val calculatedCalories =
                             product.nutriments.carbohydratesg * 4f +
                             product.nutriments.fatsg * 9f +

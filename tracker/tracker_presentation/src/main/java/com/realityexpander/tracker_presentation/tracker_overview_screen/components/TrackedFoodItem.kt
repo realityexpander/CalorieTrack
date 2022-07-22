@@ -9,7 +9,6 @@ import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -114,7 +113,7 @@ fun TrackedFoodItem(
 
                 NutrientInfo(
                     nutrientName = stringResource(id = R.string.carbs),
-                    amount = trackedFood.carbs,
+                    amount = trackedFood.carb,
                     unit = stringResource(id = R.string.grams),
                     amountTextSize = 16.sp,
                     unitTextSize = 12.sp,
