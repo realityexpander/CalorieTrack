@@ -96,7 +96,7 @@ class TrackerOverviewE2E {
         )
 
         composeRule.setContent {
-            CalorieTrackTheme {  // must wrap in theme to prevent "Failed to inject touch input" error
+            CalorieTrackTheme {  // must wrap in theme to make sure components are themed (sizes, etc)
 
                 navController = rememberNavController()
                 val scaffoldState = rememberScaffoldState()
