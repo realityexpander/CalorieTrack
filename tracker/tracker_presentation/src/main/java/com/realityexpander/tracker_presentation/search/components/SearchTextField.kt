@@ -22,6 +22,7 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.focus.FocusState
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
@@ -71,6 +72,7 @@ fun SearchTextField(
                 .onFocusChanged { focusState ->
                     onFocusChanged(focusState)
                 }
+                .testTag("search_text_field") // must use this "test code" here because there is no other way to tag this component
         )
 
         if(shouldShowHint) {

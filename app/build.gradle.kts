@@ -16,7 +16,8 @@ android {
         versionCode = ProjectConfig.versionCode
         versionName = ProjectConfig.versionName
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        // Use our custom test runner that uses Hilt's instrumentation runner.
+        testInstrumentationRunner = "com.realityexpander.calorietrack.HiltTestRunner"
         vectorDrawables {
             useSupportLibrary = true
         }
