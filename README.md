@@ -26,3 +26,4 @@ Calorie tracking app using multi-module CLEAN architecture
 - OpenFood Api
 - Retrofit http library
 - Navigation
+- Unit Testing, Instrument testing, End-to-end testing
