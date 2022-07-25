@@ -20,7 +20,7 @@ Calorie tracking app using multi-module CLEAN architecture
 - Kotlin Gradle
 - Hilt
 - Compose
-  - Collasible tabs w/ animation
+  - Collapsable tabs w/ animation
 - Animated views
 - Room database cache
 - OpenFood Api
