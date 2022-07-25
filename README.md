@@ -1,8 +1,6 @@
 # CalorieTrack
 Calorie tracking app using multi-module CLEAN architecture
 
-[<img src="https://user-images.githubusercontent.com/5157474/180708684-10c5e065-ad66-466a-8212-7942192952ae.png" width="200"/>](https://user-images.githubusercontent.com/5157474/180708684-10c5e065-ad66-466a-8212-7942192952ae.png)
-
 [<img src="https://user-images.githubusercontent.com/5157474/180718378-7c9dd7c9-228f-4a59-b626-01e0e2edaa73.png" width="200"/>](https://user-images.githubusercontent.com/5157474/180718378-7c9dd7c9-228f-4a59-b626-01e0e2edaa73.png)
 [<img src="https://user-images.githubusercontent.com/5157474/180718404-df939393-ff26-4bd1-8cf3-066f6eb33b47.png" width="200"/>](https://user-images.githubusercontent.com/5157474/180718404-df939393-ff26-4bd1-8cf3-066f6eb33b47.png)
 [<img src="https://user-images.githubusercontent.com/5157474/180718423-a63a7f7d-48fd-45f5-83e2-667c557df81d.png" width="200"/>](https://user-images.githubusercontent.com/5157474/180718423-a63a7f7d-48fd-45f5-83e2-667c557df81d.png)
