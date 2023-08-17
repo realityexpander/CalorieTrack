@@ -1,0 +1,22 @@
+# Project exclude paths
+/.gradle/
+/app/build/
+/app/build/intermediates/javac/debug/classes/
+/app/build/intermediates/javac/debugAndroidTest/classes/
+/buildSrc/.gradle/
+/buildSrc/build/
+/core/build/
+/core/build/intermediates/javac/debug/classes/
+/core-ui/build/
+/core-ui/build/intermediates/javac/debug/classes/
+/onboarding/onboarding_domain/build/
+/onboarding/onboarding_domain/build/intermediates/javac/debug/classes/
+/onboarding/onboarding_presentation/build/
+/onboarding/onboarding_presentation/build/intermediates/javac/debug/classes/
+/tracker/tracker_data/build/
+/tracker/tracker_data/build/intermediates/javac/debug/classes/
+/tracker/tracker_domain/build/
+/tracker/tracker_domain/build/intermediates/javac/debug/classes/
+/tracker/tracker_presentation/build/
+/tracker/tracker_presentation/build/intermediates/javac/debug/classes/
+/tracker/tracker_presentation/build/intermediates/javac/debugAndroidTest/classes/
